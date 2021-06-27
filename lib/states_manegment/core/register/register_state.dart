@@ -21,10 +21,10 @@ class RegisterState extends Equatable {
     LoginState loginState,
   }) {
     return RegisterState(
-      placeId: this.placeId ?? placeId,
-      name: this.name ?? name,
-      formStatus: this.formStatus ?? formStatus,
-      loginState: this.loginState ?? loginState,
+      placeId: placeId ?? this.placeId,
+      name: name ?? this.name,
+      formStatus: formStatus ?? this.formStatus,
+      loginState: loginState ?? this.loginState,
     );
   }
 

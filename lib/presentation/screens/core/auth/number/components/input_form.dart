@@ -50,12 +50,15 @@ class _InputFormState extends State<InputForm> {
           print('Number submission failed');
           _hideLoader(context);
           _showSnackBar(context, formStatus.exception.toString());
+          BlocProvider.of<NumberBloc>(context).add(NumberFailed());
         }
 
         if (formStatus is SubmissionSuccess) {
           _hideLoader(context);
-          Navigator.of(context)
-              .pushNamed(OtpRoute, arguments: inputNumber.toString());
+          Navigator.of(context).pushReplacementNamed(
+            OtpRoute,
+            arguments: inputNumber.toString(),
+          );
         }
       },
       builder: (context, state) {
@@ -64,11 +67,13 @@ class _InputFormState extends State<InputForm> {
           countries: ['IN'],
           spaceBetweenSelectorAndTextField: 0,
           onInputChanged: (PhoneNumber number) {
+            print(number);
             setState(() {
               inputNumber = number.toString();
             });
-            context
-                .read<NumberBloc>()
+            print(inputNumber);
+            print('Inputnumber');
+            BlocProvider.of<NumberBloc>(context, listen: false)
                 .add(NumberChanged(number: number.toString()));
           },
           onInputValidated: (bool value) {
@@ -96,8 +101,7 @@ class _InputFormState extends State<InputForm> {
 
   submitNumber() {
     if (_formKey.currentState.validate()) {
-      // print('Working');
-      context.read<NumberBloc>().add(NumberSubmitted());
+      BlocProvider.of<NumberBloc>(context).add(NumberSubmitted());
     }
   }
 

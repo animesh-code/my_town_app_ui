@@ -46,6 +46,7 @@ class Body extends StatelessWidget {
             } else if (formStatus is SubmissionFailed) {
               _hideLoader(context);
               _showSnackBar(context, formStatus.exception.toString());
+              BlocProvider.of<OtpBloc>(context).add(OtpFailed());
             }
           },
           builder: (context, state) {

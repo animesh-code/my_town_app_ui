@@ -45,6 +45,8 @@ class NumberBloc extends Bloc<NumberEvent, NumberState> {
       } catch (e) {
         yield state.copyWith(formStatus: SubmissionFailed(e));
       }
+    } else if (event is NumberFailed) {
+      yield state.copyWith(formStatus: InitialFormStatus());
     }
   }
 }

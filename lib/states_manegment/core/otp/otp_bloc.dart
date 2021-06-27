@@ -72,6 +72,11 @@ class OtpBloc extends Bloc<OtpEvent, OtpState> {
       } catch (e) {
         yield state.copyWith(formStatus: SubmissionFailed(e));
       }
+    } else if (event is OtpFailed) {
+      yield state.copyWith(
+        formStatus: InitialFormStatus(),
+        loginState: LoginInitial(),
+      );
     }
   }
 }

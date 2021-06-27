@@ -13,5 +13,10 @@ class NumberChanged extends NumberEvent {
 
 class NumberSubmitted extends NumberEvent {
   @override
-  List<Object> get props => [];
+  List<Object> get props => null;
+}
+
+class NumberFailed extends NumberEvent {
+  @override
+  List<Object> get props => null;
 }

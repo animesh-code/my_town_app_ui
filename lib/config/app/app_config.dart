@@ -83,25 +83,17 @@ class AppConfig {
   }
 
   static Widget composeRegisterUi() {
-    final IAuthService authService = _authService;
-    final ILocationService locationService = _locationService;
-
-    RegisterBloc _registerBloc = RegisterBloc(
-      authService: authService,
-      authCubit: _authCubit,
-      localStore: _localStore,
-    );
-
-    LocationCubit _locationCubit =
-        LocationCubit(locationService: locationService);
-
     return MultiBlocProvider(
       providers: [
         BlocProvider<RegisterBloc>(
-          create: (_) => _registerBloc,
+          create: (_) => RegisterBloc(
+            authService: _authService,
+            authCubit: _authCubit,
+            localStore: _localStore,
+          ),
         ),
         BlocProvider<LocationCubit>(
-          create: (_) => _locationCubit,
+          create: (_) => LocationCubit(locationService: _locationService),
         ),
       ],
       child: RegisterPage(),

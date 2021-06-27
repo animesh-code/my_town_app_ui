@@ -32,7 +32,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     } else if (event is NameChanged) {
       yield state.copyWith(name: event.name);
       //
-    } else if (state is DataSubmitted) {
+    } else if (event is DataSubmitted) {
       yield state.copyWith(formStatus: FormSubmitting());
 
       try {
@@ -52,6 +52,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
           loginState: LoginSuccess(token: token.asValue.value),
         );
       } catch (e) {
+        print('Error token');
         yield state.copyWith(formStatus: SubmissionFailed(e));
       }
     }

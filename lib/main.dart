@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:my_town/composition_root.dart';
 import 'package:my_town/config/app/app_config.dart';
 import 'package:my_town/config/routes/router.dart';
 import 'package:my_town/config/themes/theme.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await AppConfig.configure();
   AppConfig.composeInitialUi();
   runApp(MyApp());

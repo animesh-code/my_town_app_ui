@@ -12,8 +12,7 @@ class RegisterPage extends StatelessWidget {
         context: context,
         builder: (context) => AlertDialog(
           title: Text('Are you sure?'),
-          content: Text(
-              'Do you want to leave without registering, then you have to re-verify again.'),
+          content: Text('Do you want to leave the app.'),
           actions: [
             TextButton(
                 onPressed: () => Navigator.of(context).pop(false),
