@@ -3,9 +3,9 @@ import 'package:my_town/constants/constants.dart';
 
 ThemeData theme() {
   return ThemeData(
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: kBackgroundColor,
     // primaryColor: kSecondaryColor,
-    fontFamily: "Lato",
+    fontFamily: "CircularStd",
     textTheme: textTheme(),
     visualDensity: VisualDensity.adaptivePlatformDensity,
   );
@@ -13,7 +13,7 @@ ThemeData theme() {
 
 TextTheme textTheme() {
   return TextTheme(
-    bodyText1: TextStyle(color: kTextColor),
-    bodyText2: TextStyle(color: kTextColor),
+    bodyText1: TextStyle(color: kDarkColor),
+    bodyText2: TextStyle(color: kDarkColor),
   );
 }

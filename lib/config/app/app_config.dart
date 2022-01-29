@@ -8,7 +8,7 @@ import 'package:my_town/cache/local_store_contract.dart';
 import 'package:my_town/presentation/screens/core/auth/number/number_page.dart';
 import 'package:my_town/presentation/screens/core/auth/otp/otp_page.dart';
 import 'package:my_town/presentation/screens/core/auth/register/register_page.dart';
-import 'package:my_town/presentation/screens/main/home_page.dart';
+import 'package:my_town/presentation/screens/main/nav_page.dart';
 import 'package:my_town/states_manegment/core/auth/auth_cubit.dart';
 import 'package:my_town/states_manegment/core/number/number_bloc.dart';
 import 'package:my_town/states_manegment/core/otp/otp_bloc.dart';
@@ -49,7 +49,7 @@ class AppConfig {
     if (_token == null) {
       return composeNumberUi();
     } else {
-      return HomePage();
+      return NavPage();
     }
   }
 

@@ -63,33 +63,33 @@ class _StorePageState extends State<StorePage> {
     return SafeArea(
       child: CustomScrollView(
         slivers: [
-          SliverAppBar(
-            elevation: 1,
-            backgroundColor: Colors.white,
-            floating: true,
-            title: Container(
-              color: Colors.grey.withOpacity(0.15),
-              child: TextField(
-                onSubmitted: (value) {
-                  print(value);
-                },
-                controller: _searchController,
-                style: TextStyle(fontSize: 18),
-                decoration: InputDecoration(
-                  hintText: 'Search accross your city',
-                  enabledBorder: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  prefixIcon: Icon(Icons.search),
-                  suffixIcon: _searchController.text.isEmpty
-                      ? null
-                      : InkWell(
-                          onTap: () => _searchController.clear(),
-                          child: Icon(Icons.clear),
-                        ),
-                ),
-              ),
-            ),
-          ),
+          // SliverAppBar(
+          //   elevation: 1,
+          //   backgroundColor: Colors.white,
+          //   floating: true,
+          //   title: Container(
+          //     color: Colors.grey.withOpacity(0.15),
+          //     child: TextField(
+          //       onSubmitted: (value) {
+          //         print(value);
+          //       },
+          //       controller: _searchController,
+          //       style: TextStyle(fontSize: 18),
+          //       decoration: InputDecoration(
+          //         hintText: 'Search accross your city',
+          //         enabledBorder: InputBorder.none,
+          //         focusedBorder: InputBorder.none,
+          //         prefixIcon: Icon(Icons.search),
+          //         suffixIcon: _searchController.text.isEmpty
+          //             ? null
+          //             : InkWell(
+          //                 onTap: () => _searchController.clear(),
+          //                 child: Icon(Icons.clear),
+          //               ),
+          //       ),
+          //     ),
+          //   ),
+          // ),
           SliverToBoxAdapter(
             child: Container(
               margin: EdgeInsets.only(top: 8),

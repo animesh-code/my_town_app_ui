@@ -3,21 +3,13 @@ import 'package:my_town/config/app/size_config.dart';
 
 // const kPrimaryColor = Color(0xFF76DAB1);
 // const kPrimaryColor = Colors.orangeAccent;
-const kPrimaryColor = Color(0xFFFFC529);
-const kPrimaryLightColor = Color(0xFF8CEECD);
+const kPrimaryColor = Color(0xFF6C9BF6);
+const kSecondaryColor = Color(0xFFF66C9B);
+const kBackgroundColor = Color(0xFFebebeb);
 
-// const kSecondaryColor = Color(0xFF559B5F);
-const kSecondaryColor = Color(0xFFFE724C);
-const kSecondaryLightColor = Color(0xFF96EFB6);
-const kSecondaryDarkColor = Color(0xFF225630);
+const kDarkColor = Color(0xFF07020d);
 
-const kDarkColor = Color(0xFF272D2F);
-
-const kLightColor = Color(0xFFF3F5F5);
-
-// const kTextColor = Color(0xFFB4B7AE);
-const kTextColor = Color(0xFFD7D7D7);
-const kTextDarkColor = Color(0xFF61A99D);
+const kLightColor = Color(0xFFB1BACC);
 
 const kAnimationDuration = Duration(milliseconds: 200);
 

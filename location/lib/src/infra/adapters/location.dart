@@ -1,4 +1,5 @@
 import 'package:async/async.dart';
+
 import 'package:location/src/domain/location_service_contract.dart';
 import 'package:location/src/domain/place.dart';
 import 'package:location/src/infra/api/location_api_contract.dart';

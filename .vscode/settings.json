@@ -62,7 +62,17 @@
     "location\\LICENSE": true,
     "location\\location.iml": true,
     "location\\pubspec.lock": true,
-    "location\\README.md": true
+    "location\\README.md": true,
+    "store_categories\\.dart_tool": true,
+    "store_categories\\.idea": true,
+    "store_categories\\.gitignore": true,
+    "store_categories\\.metadata": true,
+    "store_categories\\.packages": true,
+    "store_categories\\CHANGELOG.md": true,
+    "store_categories\\LICENSE": true,
+    "store_categories\\pubspec.lock": true,
+    "store_categories\\README.md": true,
+    "store_categories\\store_categories.iml": true
   },
   "cSpell.words": [
     "Lato"

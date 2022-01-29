@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:my_town/constants/constants.dart';
 
 class ActiveDot extends StatelessWidget {
   @override
@@ -11,7 +12,7 @@ class ActiveDot extends StatelessWidget {
         width: 8,
         height: 8,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: kPrimaryColor,
           borderRadius: BorderRadius.circular(5),
         ),
       ),
@@ -28,7 +29,7 @@ class InactiveDot extends StatelessWidget {
         width: 8,
         height: 8,
         decoration: BoxDecoration(
-          color: Colors.grey,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(5),
         ),
       ),
@@ -60,7 +61,7 @@ class _CustomSliderWidgetState extends State<CustomSliderWidget> {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      overflow: Overflow.visible,
+      clipBehavior: Clip.hardEdge,
       children: <Widget>[
         Container(
           width: MediaQuery.of(context).size.width,
@@ -69,10 +70,10 @@ class _CustomSliderWidgetState extends State<CustomSliderWidget> {
               onPageChanged: (index, reason) {
                 setActiveDot(index);
               },
-              enableInfiniteScroll: false,
-              autoPlayCurve: Curves.fastLinearToSlowEaseIn,
+              enableInfiniteScroll: true,
+              autoPlay: true,
+              autoPlayCurve: Curves.easeInOutQuad,
               autoPlayAnimationDuration: Duration(seconds: 2),
-              // autoPlay: true,
               viewportFraction: 1.0,
             ),
             items: widget.items.map((item) {

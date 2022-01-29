@@ -497,6 +497,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.10.0"
+  store_categories:
+    dependency: "direct main"
+    description:
+      path: store_categories
+      relative: true
+    source: path
+    version: "0.0.1"
   stream_channel:
     dependency: transitive
     description:

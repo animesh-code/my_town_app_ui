@@ -2,12 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:my_town/constants/constants.dart';
 
 class StoreCategoryList extends StatelessWidget {
-  final List stores;
-  final Function press;
-  StoreCategoryList({
-    @required this.stores,
-    @required this.press,
-  });
+  final List stores = [
+    {
+      "name": "Grocery",
+      "color": Color(0xffE2F3C2),
+      "image": 'assets/images/grocery.png',
+    },
+    {
+      "name": "Restaurants",
+      "color": Color(0xffFCE8A8),
+      "image": 'assets/images/restaurents.png',
+    },
+    {
+      "name": "Books",
+      "color": Color(0xffDFECF8),
+      "image": 'assets/images/books.png',
+    },
+    {
+      "name": "Gift & Deco.",
+      "color": Color(0xffFFDBC5),
+      "image": 'assets/images/gift.png',
+    },
+    {
+      "name": "Medicine",
+      "color": Color(0xffFCE8A8),
+      "image": 'assets/images/medicine.png',
+    },
+    {
+      "name": "Stationary",
+      "color": Color(0xffDFEED4),
+      "image": 'assets/images/stationary.png',
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +47,7 @@ class StoreCategoryList extends StatelessWidget {
             return Column(
               children: [
                 GestureDetector(
-                  onTap: press,
+                  onTap: showStores,
                   child: Container(
                     margin: EdgeInsets.only(left: 8),
                     padding: EdgeInsets.all(15),
@@ -51,5 +77,9 @@ class StoreCategoryList extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void showStores() {
+    //
   }
 }

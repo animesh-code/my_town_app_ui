@@ -3,6 +3,7 @@ import 'package:my_town/config/app/size_config.dart';
 import 'package:my_town/constants/constants.dart';
 import 'package:my_town/presentation/screens/main/store/components/store_category_list.dart';
 import 'package:my_town/presentation/widgets/custom_app_bar.dart';
+import 'package:my_town/presentation/widgets/custom_search_bar.dart';
 import 'package:my_town/presentation/widgets/custom_slider.dart';
 
 class Body extends StatelessWidget {
@@ -49,19 +50,21 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        CustomAppBar(),
+        CustomSearchBar(),
         SliverToBoxAdapter(
           child: Container(
             margin: EdgeInsets.only(
               top: getProportionateScreenHeight(8),
               bottom: getProportionateScreenHeight(12),
+              left: getProportionateScreenWidth(8),
+              right: getProportionateScreenWidth(8),
             ),
             child: CustomSliderWidget(
               items: _sliderImages,
             ),
           ),
         ),
-        StoreCategoryList(stores: _stores, press: showStores),
+        StoreCategoryList(),
         SliverToBoxAdapter(
           child: Container(
             margin: EdgeInsets.only(top: getProportionateScreenHeight(20)),
@@ -97,7 +100,7 @@ class Body extends StatelessWidget {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      color: kTextColor.withOpacity(0.2),
+                      color: kDarkColor.withOpacity(0.2),
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(8),
                         topRight: Radius.circular(8),
@@ -116,7 +119,7 @@ class Body extends StatelessWidget {
                   Text(
                     '50% Off on Everything',
                     style: TextStyle(
-                      color: kSecondaryColor,
+                      color: kPrimaryColor,
                       fontSize: getProportionateScreenWidth(15),
                       // fontWeight: FontWeight.bold,
                     ),

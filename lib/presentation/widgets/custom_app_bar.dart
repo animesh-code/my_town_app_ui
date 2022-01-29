@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:my_town/config/app/size_config.dart';
 import 'package:my_town/constants/constants.dart';
 
-class CustomAppBar extends StatefulWidget {
+class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
+  final Widget title;
+  final AppBar appBar;
+
+  const CustomAppBar({
+    @required this.title,
+    @required this.appBar,
+  });
+
   @override
   _CustomAppBarState createState() => _CustomAppBarState();
+
+  @override
+  Size get preferredSize => new Size.fromHeight(appBar.preferredSize.height);
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
@@ -16,35 +28,67 @@ class _CustomAppBarState extends State<CustomAppBar> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return SliverAppBar(
-      elevation: 1,
+  PreferredSizeWidget build(BuildContext context) {
+    return AppBar(
+      // pinned: true,
+      iconTheme: IconThemeData(color: kDarkColor),
+      elevation: 0,
       backgroundColor: Colors.white,
-      floating: true,
-      title: Container(
-        color: kTextColor.withOpacity(0.5),
-        child: TextField(
-          textInputAction: TextInputAction.search,
-          onSubmitted: (value) {
-            print(value);
-            search(value);
-          },
-          controller: _searchController,
-          style: TextStyle(fontSize: 18),
-          decoration: InputDecoration(
-            hintText: 'Search accross your city',
-            enabledBorder: InputBorder.none,
-            focusedBorder: InputBorder.none,
-            prefixIcon: Icon(Icons.search),
-            suffixIcon: _searchController.text.isEmpty
-                ? null
-                : InkWell(
-                    onTap: () => _searchController.clear(),
-                    child: Icon(Icons.clear),
+      centerTitle: true,
+      // snap: true,
+      title: widget.title,
+      actions: [
+        IconButton(
+          onPressed: () {
+            showGeneralDialog(
+              context: context,
+              barrierDismissible: false,
+              transitionDuration: Duration(milliseconds: 0),
+              transitionBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                return FadeTransition(
+                  opacity: animation,
+                  child: ScaleTransition(
+                    scale: animation,
+                    child: child,
                   ),
+                );
+              },
+              pageBuilder: (context, animation, secondaryAnimation) {
+                return Scaffold(
+                  body: SafeArea(
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
+                      padding: EdgeInsets.all(20),
+                      color: Colors.white,
+                      child: Column(
+                        children: [
+                          Text('Cart products'),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+            );
+          },
+          icon: ImageIcon(
+            AssetImage('assets/images/bag1.png'),
+            size: 24,
+            color: kDarkColor,
           ),
         ),
-      ),
+      ],
+      // bottom: PreferredSize(
+      //   preferredSize: Size.fromHeight(
+      //     getProportionateScreenHeight(56.5),
+      //   ),
+      //   child: Padding(
+      //     padding: EdgeInsets.fromLTRB(18, 5, 18, 5),
+      //     child:
+      //   ),
+      // ),
     );
   }
 
@@ -52,3 +96,48 @@ class _CustomAppBarState extends State<CustomAppBar> {
     //
   }
 }
+
+// title: Container(
+//         color: Colors.white,
+//         child: Container(
+//           height: getProportionateScreenHeight(40),
+//           decoration: BoxDecoration(
+//             borderRadius: BorderRadius.circular(5),
+//             border: Border.all(
+//               width: 1,
+//               color: kLightColor,
+//             ),
+//           ),
+//           child: GestureDetector(
+//             onTap: () {
+//               showSearch(
+//                 context: context,
+//                 delegate: CustomSearchDelegate(),
+//               );
+//             },
+//             child: Row(
+//               children: [
+//                 SizedBox(
+//                   width: getProportionateScreenWidth(14),
+//                 ),
+//                 Icon(
+//                   Icons.search,
+//                   color: kLightColor,
+//                   size: 20,
+//                 ),
+//                 SizedBox(
+//                   width: getProportionateScreenWidth(6),
+//                 ),
+//                 Text(
+//                   'Search anything in your city',
+//                   style: TextStyle(
+//                     color: kLightColor,
+//                     fontSize: 15,
+//                     fontWeight: FontWeight.normal,
+//                   ),
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),

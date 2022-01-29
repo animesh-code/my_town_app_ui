@@ -27,6 +27,8 @@ dependencies:
     path: ./auth
   location:
     path: ./location
+  store_categories:
+    path: ./store_categories
   carousel_slider: ^3.0.0
   cupertino_icons: ^1.0.2
   equatable: ^2.0.0
@@ -71,6 +73,14 @@ flutter:
           weight: 700
         - asset: assets/fonts/Lato-Light.ttf
           weight: 300
+    - family: CircularStd
+      fonts:
+        - asset: assets/fonts/Circular Std Book.ttf
+        - asset: assets/fonts/Circular Std Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Circular Std Black.ttf
+          weight: 900
+        - asset: assets/fonts/Circular Std Medium.ttf
 
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
